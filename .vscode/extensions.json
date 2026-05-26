@@ -2,6 +2,7 @@
     "recommendations": [
         "GitHub.copilot",
         "GitHub.copilot-chat",
+        "marp-team.marp-vscode",
         "MermaidChart.vscode-mermaid-chart",
         "ms-azuretools.vscode-docker",
         "eamodio.gitlens",

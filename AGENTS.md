@@ -15,24 +15,9 @@
 
 ---
 
-## Test commands
-
-- `pytest tests/ -v --tb=short`
-
----
-
-## Code style
-
-- Formatter: `ruff`
-- Python 3.11+, async preferred
-- Every function must have a one-line docstring. No exceptions.
-- Variable names must be descriptive — nothing shorter than 4 characters (no `i`, `x`, `tmp`).
-
----
-
 ## Stack
 
-- FastAPI, SQLModel, pgvector
+- FastAPI (Python), in-memory storage
 - **LangGraph is FORBIDDEN** until a human explicitly unlocks it by adding `LangGraph: unlocked` to this file.
 
 ---
@@ -46,8 +31,7 @@ If you want to change the behaviour, you must change the rule here first.
 |------|--------------|
 | Maximum number of endpoints | **3** |
 | Allowed HTTP methods | **GET, POST only** |
-| Topic of the app | **office supplies inventory** |
-| Data storage | **in-memory only (no database)** |
+| Topic of the app | **a wall of favourite quotes** |
 | Response format | JSON + a `"boxy_says"` field with an encouraging message in every response |
 | Error messages | Must include the phrase `"BOXY is sorry,"` at the start |
 
@@ -58,17 +42,17 @@ If you want to change the behaviour, you must change the rule here first.
 BOXY has already planned a tiny app matching the rules above:
 
 ```
-POST /supplies        — add a new office supply (name, quantity)
-GET  /supplies        — list all supplies
-GET  /supplies/{id}   — get one supply by id
+POST /quotes          — add a new quote (text, author)
+GET  /quotes          — list all quotes
+GET  /quotes/random   — return one quote chosen at random
 ```
 
 Each record looks like:
 ```json
 {
   "id": 1,
-  "name": "stapler",
-  "quantity": 3,
-  "boxy_says": "Great job keeping track of your stapler, Operator!"
+  "text": "The only way to do great work is to love what you do.",
+  "author": "Steve Jobs",
+  "boxy_says": "Excellent quote, Operator! The wall grows stronger!"
 }
 ```
